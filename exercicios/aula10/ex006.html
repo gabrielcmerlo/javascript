@@ -7,7 +7,7 @@
     <title>Eventos DOM</title>
     <style>
         div#area {
-            font: normal 20pt Arial;
+            font: normal 15pt Arial;
             background: rgb(42, 139, 42);
             color: white;
             width: 200px;
@@ -19,13 +19,13 @@
 </head>
 <body>
     <div id="area">
-        Interaja...
+        Intereja...
     </div>
 
     <script>
-        var a = window.document.getElementById('area')
+        var a = document.getElementById('area')
         a.addEventListener('click', clicar)
-        a.addEventListener('mouseenter', entrar)
+        a.addEventListener('mouseover', entrar)
         a.addEventListener('mouseout', sair)
 
         function clicar() {
