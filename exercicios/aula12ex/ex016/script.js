@@ -17,7 +17,7 @@ function verificar() {
                 img.setAttribute('src', '../imagens/foto-bebe-m.png')
             } else if (idade < 21) {
                 img.setAttribute('src', '../imagens/foto-jovem-m.png')
-            } else if (idade < 50) {
+            } else if (idade < 60) {
                 img.setAttribute('src', '../imagens/foto-adulto-m.png')
             } else {
                 img.setAttribute('src', '../imagens/foto-idoso-m.png')
