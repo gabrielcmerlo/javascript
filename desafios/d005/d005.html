@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de medidas</title>
+    <style>
+        body {
+            font: normal 15pt Arial;
+        }
+
+        div#botao input {
+            font: normal 12pt Arial;
+            width: 100px;
+            height: 65px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <div id="botao">
+        <input type="button" value="Converter" onclick="clicou()">
+    </div>
+    <div id="res">
+        <p>Clique no botão acima para iniciar.</p>
+    </div>
+
+    <script>
+        /*
+            Km      ----- / 1000
+            Hm      ----- / 100
+            Dam     ----- / 10
+            M       ----- 1
+            dm      ----- X 10
+            cm      ----- X 100
+            mm      ----- X 1000
+        */
+
+        let res = document.getElementById('res')
+        function clicou() {
+            res.innerHTML = ''
+            let metros = window.prompt('Digite um distância em metros (m)')
+            let km = (metros / 1000).toLocaleString('pt-br', {minimumFractionDigits: 0, maximumFractionDigits: 3})
+            let hm = (metros / 100).toLocaleString('pt-br', {minimumFractionDigits: 0, maximumFractionDigits: 3})
+            let dam = (metros / 10).toLocaleString('pt-br', {minimumFractionDigits: 0, maximumFractionDigits: 3})
+            let dm = (metros * 10).toLocaleString('pt-br', {minimumFractionDigits: 0, maximumFractionDigits: 3})
+            let cm = (metros * 100).toLocaleString('pt-br', {minimumFractionDigits: 0, maximumFractionDigits: 3})
+            let mm = (metros * 1000).toLocaleString('pt-br', {minimumFractionDigits: 0, maximumFractionDigits: 3})
+            res.innerHTML = ''
+            res.innerHTML += `<h3>A distância de ${metros} metros, corresponde a...</h3>`
+            res.innerHTML += `${km} quilômetros (Km)<br>`
+            res.innerHTML += `${hm} hectômetros (Hm)<br>`
+            res.innerHTML += `${dam} decâmetros (Dam)<br>`
+            res.innerHTML += `${dm} decímetros (dm)<br>`
+            res.innerHTML += `${cm} centímetros (cm)<br>`
+            res.innerHTML += `${mm} milímetros (mm)`
+        }
+    </script>
+</body>
+</html>
