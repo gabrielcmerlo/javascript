@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajustar salário</title>
+    <style>
+        body {
+            font: normal 15pt Arial;
+        }
+
+        div#botao input {
+            font: normal 12pt Arial;
+            width: 150px;
+            height: 65px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reajuste Salarial</h1>
+    <div id="botao">
+        <input type="button" value="Reajustar Salário" onclick="clicou()">
+    </div>
+    <div id="res">
+        <p>Clique no botão acima para iniciar.</p>
+    </div>
+    <script>
+        let res = document.getElementById('res')
+        function clicou() {
+            res.innerHTML = ''
+            let nome = window.prompt('Qual é o nome do funcionário?')
+            let sal = Number(window.prompt(`Qual é o salário de ${nome}?`)).toFixed(2)
+            let porce = Number(window.prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`)).toFixed(2)
+            let reaj = Number((sal * porce) / 100).toFixed(2)
+            let salf = (Number(reaj) + Number(sal)).toFixed(2)
+            res.innerHTML = ''
+            res.innerHTML += `<h3>${nome} recebeu um aumento salarial!</h3>`
+            res.innerHTML += `O salário atual era R$ ${sal}.<br>`
+            res.innerHTML += `Com um aumento de ${porce}%, o salário vai aumentar R$ ${reaj} no próximo mês.<br>`
+            res.innerHTML += `E a partir daí, ${nome} vai passar a ganhar R$ ${salf}. `
+        }
+    </script>
+</body>
+</html>
