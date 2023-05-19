@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de temperaturas</title>
+    <style>
+        body {
+            font: normal 15pt Arial;
+        }
+
+        div#botao input {
+            font: normal 12pt Arial;
+            width: 100px;
+            height: 65px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Temperaturas</h1>
+    <div id="botao">
+        <input type="button" value="Converter" onclick="clicou()">
+    </div>
+    <div id="res">
+        <p>Clique no botão acima para iniciar.</p>
+    </div>
+
+    <script>
+        let res = document.getElementById('res')
+        function clicou() {
+            res.innerHTML = ''
+            let cel = Number(window.prompt('Digite um temperatura em °C (Celsius)'))
+            let kel = (cel + 273.15).toLocaleString('pt-br', {minimumFractionDigits: 0, maximumFractionDigits: 3})
+            let fah = ((1.8 * cel) + 32).toLocaleString('pt-br', {minimumFractionDigits: 0, maximumFractionDigits: 3})
+            res.innerHTML = ''
+            res.innerHTML += `<h3>A temperatura de ${cel}°C, corresponde a...</h3>`
+            res.innerHTML += `${kel}°K (Kelvin)<br>`
+            res.innerHTML += `${fah}°F (Fahrenheit)`
+        }
+    </script>
+</body>
+</html>
