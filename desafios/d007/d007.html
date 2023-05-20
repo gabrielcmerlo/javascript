@@ -32,7 +32,7 @@
         function clicou() {
             res.innerHTML = ''
             let real = Number(window.prompt('Quantos R$ você tem na carteira?'))
-            let dolar = (real / cota).toLocaleString('pt-br', {minimumFractionDigits: 0, maximumFractionDigits: 2})
+            let dolar = (real / cota).toFixed(2).toLocaleString('pt-br', {style: 'currency', currency: 'USD'})
             res.innerHTML = ''
             res.innerHTML += `<p>Com R$${real} na cotação de R$${cota} você terá US$${dolar}.</p>`
         }
