@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou</title>
+    <style>
+        body {
+            font: normal 15pt Arial;
+        }
+
+        div#botao input {
+            font: normal 12pt Arial;
+            width: 100px;
+            height: 65px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <div id="botao">
+        <input type="button" value="Verificar" onclick="clicou()">
+    </div>
+    <div id="res">
+        <p>Clique no botão acima para analisar a mudança de preço.</p>
+    </div>
+
+    <script>
+        function clicou() {
+            let res = document.getElementById('res')
+            let anterior = Number(prompt('Qual era o preço anterior do produto?')).toFixed(2)
+            let atual = Number(prompt('Qual é preço atual do produto?')).toFixed(2)
+            
+            let subiu = (atual - anterior).toFixed(2)
+            let vSubiu = (((atual - anterior) / anterior) * 100).toFixed(2)
+            let caiu = (anterior - atual).toFixed(2)
+            let vCaiu = (((anterior - atual) / atual) * 100).toFixed(2)
+            let diferenca = (anterior - atual).toFixed(2)
+
+            res.innerHTML = ''
+            
+            if (diferenca <= 0) {
+                res.innerHTML += '<h3>Analisando os valores informados'
+                res.innerHTML += `O preço custava R$ ${anterior} e agora custa R$ ${atual}<br><br>`
+                res.innerHTML += 'Hoje o produto está mais caro.<br><br>'
+                res.innerHTML += `O preço subiu R$ ${subiu} em relação ao preço anterior.<br><br>`
+                res.innerHTML += `Uma variação de ${vSubiu}% pra cima.`
+            } else {
+                res.innerHTML += '<h3>Analisando os valores informados'
+                res.innerHTML += `O preço custava R$ ${anterior} e agora custa R$ ${atual}<br><br>`
+                res.innerHTML += 'Hoje o produto está mais barato.<br><br>'
+                res.innerHTML += `O preço caiu R$ ${caiu} em relação ao preço anterior.<br><br>`
+                res.innerHTML += `Uma variação de ${vCaiu}% pra baixo`
+            }
+        }
+    </script>
+</body>
+</html>
